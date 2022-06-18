@@ -15,8 +15,14 @@ public class NestedException {
         System.out.println("Ingrese el denominador:");
         denominador = scanner.nextInt();
 
-        resultado = dividir(numerador, denominador);
-        System.out.println("Resultado de la división: " + resultado);
+        try {
+            resultado = dividir(numerador, denominador);
+            System.out.println("Resultado de la división: " + resultado);
+        } catch (ArithmeticException ae) {
+            System.out.println("No se puede dividir por cero");
+        }
+
+        System.out.println("Programa finalizado normalmente");
     }
 
     public static int dividir(int num, int den) throws ArithmeticException {
